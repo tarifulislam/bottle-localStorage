@@ -1,4 +1,5 @@
 
+// get data from localStorage --------
 const getStoredCart = () => {
     const storedCartString = localStorage.getItem("cart");
     if(storedCartString){
@@ -7,17 +8,19 @@ const getStoredCart = () => {
     return[];
 }
 
+// save data to localStorage --------
 const saveCartToLS = cart =>{
     const cartStringfied = JSON.stringify(cart);
     localStorage.setItem("cart", cartStringfied);
 }
 
+// remove data from localStorage --------
 const removeFromLS = id =>{
     const cart = getStoredCart()
     const remaingBottle = cart.filter(idx => idx !== id);
     saveCartToLS(remaingBottle);
-
 }
+
 
 const addToLS = id => {
     const cart = getStoredCart();
